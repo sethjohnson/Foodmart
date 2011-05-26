@@ -1,4 +1,12 @@
 Foodmart::Application.routes.draw do
+
+  resources :foods
+
+  match '/newfood', :to => 'foods#new'
+  match '/allfood', :to => 'foods#index'
+  root :to => 'foods#index'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
