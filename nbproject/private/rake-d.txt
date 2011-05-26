@@ -1,0 +1,1 @@
+[31mCould not find gem 'sqlite3 (>= 0, runtime)' in any of the gem sources.[0m
