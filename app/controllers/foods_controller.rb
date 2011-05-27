@@ -13,7 +13,13 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @food = Food.new(params[:food])
+    @text = params[:food][:name];
+
+  @food = Food.find(
+        :all, :conditions => ["UPPER(name) LIKE ?", "#{@text.upcase}%"]).sort!{
+        |a,b| a.name.downcase <=> b.name.downcase
+      }
+      @food = Food.new(params[:food])
     if @food.save
       flash[:success] = "You made some food! Snack time!"
       redirect_to @food
